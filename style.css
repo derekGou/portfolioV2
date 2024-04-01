@@ -1,0 +1,61 @@
+html {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-x: hidden;
+    padding-bottom: 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-attachment: fixed;
+    margin: 0;
+    background: white;
+    overflow-x: hidden;
+    width: 100dvw;
+    padding-bottom: 0;-ms-overflow-style: none;
+    scrollbar-width: none;
+}
+loader {
+    display: flex;
+    position: fixed;
+    height: 100dvh;
+    width: 100dvw;
+    background-color: black;
+    z-index: 2;
+    align-items: center;
+    justify-content: center;
+}
+.circly {
+    position: absolute;
+    z-index: 3;
+    width: 10vh;
+    height: 10vh;
+    border: 16px solid transparent;
+    border-radius: 50%;
+    border-top: 16px solid rgb(50,225,225);
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+}
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+background {
+    z-index: -2;
+    background-image: radial-gradient(circle at center bottom, rgb(150, 150, 150) 0%, rgb(20, 5, 60) 60%,  rgb(10, 5, 15)100%);
+    position: fixed;
+    width: 100dvw;
+    height: 150dvh;
+}
+canvas {
+    position: fixed;
+    z-index: -1;
+}
