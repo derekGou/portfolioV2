@@ -55,7 +55,11 @@ background {
     width: 100dvw;
     height: 150dvh;
 }
-canvas {
+#canvas {
     position: fixed;
     z-index: -1;
+}
+#name {
+    position: fixed;
+    z-index: 1;
 }

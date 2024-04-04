@@ -1,5 +1,5 @@
 setTimeout(function(){
-    document.getElementsByTagName("loader")[0].remove();
+    document.getElementsByTagName("loader")[0].style.display = "none";
 }, 1000);
 resizeCanvas();
 scrolling();

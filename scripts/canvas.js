@@ -1,4 +1,4 @@
-var canvas = document.querySelector('canvas');
+var canvas = document.querySelector('#canvas');
 var c = canvas.getContext('2d');
 var stars = []; //[Distance from center, angle, speed]
 var num = 0;
@@ -34,18 +34,20 @@ function calculate(lst){
 
 function generate(){
     if (Math.random()>0.92){
-        stars.push([Math.pow(Math.random(), 0.75)*(num-$(window).height())+($(window).height()), 0, Math.random()*0.05+0.075]);
+        speed = Math.random()*0.05+0.05
+        dist = Math.pow(Math.random(), 0.75)*(num-$(window).height())+($(window).height());
+        stars.push([dist, 0, speed]);
     }
 }
 
 function render(){
     c.beginPath();
-    c.clearRect(($(window).width()/2-num), (2*$(window).height()-num), num*2, num);
+    c.clearRect(0, 0, num*2, num);
     generate();
     stars1 = [];
     for (let i=0; i<stars.length; i++){
         c.fillStyle = "white";
-        c.fillRect(calculate(stars[i])[0], calculate(stars[i])[1], 3, 3);
+        c.fillRect(calculate(stars[i])[0], calculate(stars[i])[1], 2, 2);
         stars[i][1]+=stars[i][2];
         if (stars[i][1]<=180){
             stars1.push(stars[i]);
