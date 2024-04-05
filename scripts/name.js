@@ -1,4 +1,4 @@
-spheres = [] //[x, y, angle, size, colour, speed]
+spheres = [] //[[x, y], angle, size, currcolour, colour, speed]
 
 myName = document.querySelector('#name');
 function resizeMyName(){
@@ -21,11 +21,18 @@ function resizeMyName(){
     nameImage.addEventListener("load", function(){
         c1.drawImage(nameImage, 0, 0, myName.width, myName.height);
         const pixels = c1.getImageData(0, 0, myName.width, myName.height);
-        for (let x = 0; x<50; x++){
-            for (let y = 0; y<10; y++){
-
-            }
-        }
+        
     })
 }
 resizeMyName();
+
+function nameRender(){
+    for (let i=0; i<spheres.length; i++){
+        if (spheres[i][0][0]<=0 || spheres[i][0][0]>=myName.width){
+            angle = -angle
+        }
+        if (spheres[i][0][1]<=0 || spheres[i][0][1]>=myName.height){
+            angle = Math.PI-angle
+        }
+    }
+}
