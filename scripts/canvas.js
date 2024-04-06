@@ -34,7 +34,7 @@ function calculate(lst){
 
 function generate(){
     if (Math.random()>0.92){
-        speed = Math.random()*0.05+0.05
+        speed = Math.random()*0.05+0.05;
         dist = Math.pow(Math.random(), 0.75)*(num-$(window).height())+($(window).height());
         stars.push([dist, 0, speed]);
     }
@@ -47,7 +47,7 @@ function render(){
     stars1 = [];
     for (let i=0; i<stars.length; i++){
         c.fillStyle = "white";
-        c.fillRect(calculate(stars[i])[0], calculate(stars[i])[1], 2, 2);
+        c.fillRect(calculate(stars[i])[0], calculate(stars[i])[1], 2*pxs, 2*pxs);
         stars[i][1]+=stars[i][2];
         if (stars[i][1]<=180){
             stars1.push(stars[i]);
