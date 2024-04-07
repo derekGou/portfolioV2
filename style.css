@@ -14,7 +14,7 @@ body {
     justify-items: center;
     background-attachment: fixed;
     margin: 0;
-    background: white;
+    background: black;
     overflow-x: hidden;
     width: 100dvw;
     padding-bottom: 0;-ms-overflow-style: none;
@@ -49,15 +49,6 @@ loader {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-background {
-    z-index: -2;
-    background-image: radial-gradient(circle at center bottom, rgb(150, 150, 150) 0%, rgb(20, 5, 60) 60%,  rgb(10, 5, 15)100%);
-    position: fixed;
-    width: 100dvw;
-    left: 0;
-    top: 0;
-    height: 150dvh;
-}
 #canvas {
     position: fixed;
     z-index: -1;
@@ -65,4 +56,52 @@ background {
 #name {
     position: fixed;
     z-index: 1;
+}
+.logo {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 50%vh;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.wing {
+    width: 6vh;
+    height: 12vh;
+}
+#wingLeft {
+    animation: left 3s infinite ease-in-out;
+    transform-origin: center right;
+}
+#wingRight {
+    animation: right 3s infinite ease-in-out;  
+    transform-origin: center left;
+}
+@keyframes left {
+    0% {
+        transform: perspective(1000px) rotateY(0);
+    }
+    20% {
+        transform: perspective(1000px) rotateY(60deg);
+    }
+    40% {
+        transform: perspective(1000px) rotateY(0);
+    }
+    100% {
+        transform: perspective(1000px) rotateY(0);
+    }
+}
+@keyframes right {
+    0% {
+        transform: perspective(1000px) rotateY(0);
+    }
+    20% {
+        transform: perspective(1000px) rotateY(-60deg);
+    }
+    40% {
+        transform: perspective(1000px) rotateY(0);
+    }
+    100% {
+        transform: perspective(1000px) rotateY(0);
+    }
 }
