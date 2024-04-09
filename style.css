@@ -105,3 +105,9 @@ loader {
         transform: perspective(1000px) rotateY(0);
     }
 }
+.button {
+    width: 10vh;
+    height: 5vh;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 2.5vh;
+}
