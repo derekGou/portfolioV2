@@ -53,7 +53,7 @@ function resizeMyName2(){
         spheres.push([[myName.height/2 + r * Math.cos(theta),myName.height/2 + r * Math.sin(theta)], 2*Math.PI*Math.random(), 2.5*Math.random()*pxs+1.5*pxs, [0, 0, 0, 0], [0, 0, 0, 0], 0.2*pxs*Math.random()+0.1*pxs]);
     }
 }
-
+    
 function nameRender(){
     c1.clearRect(0, 0, myName.height, myName.height);
     for (let i=0; i<spheres.length; i++){
