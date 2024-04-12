@@ -6,6 +6,7 @@ nameImage.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAwAAAAMACAYAAACTg
 
 myName = document.querySelector('#name');
 var c1 = myName.getContext('2d');
+introButton = document.getElementById("introButton");
 
 function resizeMyName(){
     if ($(window).width()>$(window).height()){
@@ -13,20 +14,23 @@ function resizeMyName(){
         myName.height = 0.50*$(window).height();
         myName.style.left = ($(window).width()-0.50*$(window).height())/2+'px';
         myName.style.top = 0.25*$(window).height()+'px';
+        introButton.style.top = (0.75*$(window).height())+'px';
     } else {
         myName.width = 0.50*$(window).width();
         myName.height = 0.50*$(window).width();
         myName.style.left = 0.25*$(window).width()+'px';
         myName.style.top = ($(window).height()-0.50*$(window).width())/2+'px';
+        introButton.style.top = (0.50*$(window).height()+0.25*$(window).width())+'px';
     }
     nameImage.addEventListener("load", function(){
+        let h = myName.height;
         c1.drawImage(nameImage, 0.2*myName.width, 0.2*myName.height, 0.6*myName.width, 0.6*myName.height);
         pixels = c1.getImageData(0, 0, myName.width, myName.height);
         spheres = [];
         for (let i=0; i<2000; i++){
-            r = myName.height/2 * Math.sqrt(Math.random())
-            theta = Math.random() * 2 * Math.PI
-            spheres.push([[myName.height/2 + r * Math.cos(theta),myName.height/2 + r * Math.sin(theta)], 2*Math.PI*Math.random(), (1+Math.random())*pxs, [0, 0, 0, 0], [0, 0, 0, 0], 0.2*pxs*Math.random()+0.1*pxs]);
+            r = h/2 * Math.sqrt(Math.random());
+            theta = Math.random() * 2 * Math.PI;
+            spheres.push([[h/2+r*Math.cos(theta), h/2+r*Math.sin(theta)], 2*Math.PI*Math.random(), (1+2*Math.random())*1.5*pxs, [0, 0, 0, 0], [0, 0, 0, 0], 0.2*pxs*Math.random()+0.1*pxs]);
         }
         requestAnimationFrame(nameRender);
     })
@@ -38,38 +42,41 @@ function resizeMyName2(){
         myName.height = 0.50*$(window).height();
         myName.style.left = ($(window).width()-0.50*$(window).height())/2+'px';
         myName.style.top = 0.25*$(window).height()+'px';
+        introButton.style.top = (0.75*$(window).height())+'px';
     } else {
         myName.width = 0.50*$(window).width();
         myName.height = 0.50*$(window).width();
         myName.style.left = 0.25*$(window).width()+'px';
         myName.style.top = ($(window).height()-0.50*$(window).width())/2+'px';
+        introButton.style.top = (0.50*$(window).height()+0.25*$(window).width())+'px';
     }
-    c1.drawImage(nameImage, 0.2*myName.width, 0.2*myName.height, 0.6*myName.width, 0.6*myName.height);
-    pixels = c1.getImageData(0, 0, myName.width, myName.height);
+    let h = myName.width;
+    c1.drawImage(nameImage, 0.2*h, 0.2*h, 0.6*h, 0.6*h);
+    pixels = c1.getImageData(0, 0, h, h);
     spheres = [];
     for (let i=0; i<2000; i++){
-        r = myName.height/2 * Math.sqrt(Math.random())
-        theta = Math.random() * 2 * Math.PI
-        spheres.push([[myName.height/2 + r * Math.cos(theta),myName.height/2 + r * Math.sin(theta)], 2*Math.PI*Math.random(), (1+Math.random())*pxs, [0, 0, 0, 0], [0, 0, 0, 0], 0.2*pxs*Math.random()+0.1*pxs]);
+        r = h/2 * Math.sqrt(Math.random());
+        theta = Math.random() * 2 * Math.PI;
+        spheres.push([[h/2+r*Math.cos(theta), h/2+r*Math.sin(theta)], 2*Math.PI*Math.random(), (1+2*Math.random())*1.5*pxs, [0, 0, 0, 0], [0, 0, 0, 0], 0.2*pxs*Math.random()+0.1*pxs]);
     }
 }
 
 function nameRender(){
+    let h = myName.height/2;
     c1.clearRect(0, 0, myName.height, myName.height);
     for (let i=0; i<spheres.length; i++){
         sphere = spheres[i];
-        h = myName.height/2
         if ((sphere[0][0]-h)**2 + (sphere[0][1]-h)**2>=h**2){
-            sphere[1]=(sphere[1]-Math.PI)%(2*Math.PI)
+            sphere[1]=(sphere[1]-Math.PI)%(2*Math.PI);
         }
         sphere[0][0]+=sphere[5]*Math.cos(sphere[1]);
         sphere[0][1]+=sphere[5]*Math.sin(sphere[1]);
         if (pixels.data[(parseInt(sphere[0][1])*pixels.width+parseInt(sphere[0][0]))*4+3]>=1){
-            num = (parseInt(sphere[0][1])*pixels.width+parseInt(sphere[0][0]))*4
+            num = (parseInt(sphere[0][1])*pixels.width+parseInt(sphere[0][0]))*4;
             sphere[3]=pixels.data.slice(num, num+4);
-            sphere[3][3]/=200
+            sphere[3][3]/=200;
         } else {
-            sphere[3]=[255, 255, 255, 0.15];
+            sphere[3]=[255, 255, 255, 0.2];
         }
         for (let i=0; i<4; i++){
             sphere[4][i]+=((sphere[3][i]-sphere[4][i])/15);

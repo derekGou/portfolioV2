@@ -1,4 +1,9 @@
 var pxs = $(window).width()/1500;
 function pixelsize(){
-    pxs = $(window).width()/1500;
+    if ($(window).width()>$(window).height()){
+        pxs = $(window).height()/1000;
+    } else {
+        pxs = $(window).width()/1000;
+    }
 }
+pixelsize()

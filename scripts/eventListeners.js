@@ -8,7 +8,5 @@ window.addEventListener("resize", function(){
     }, 1000);
     setTimeout(function(){
         $('#name').fadeIn(2000);
-    }, 1000);setTimeout(function(){
-        $('#name').slideUp();
-    }, 3000);
+    }, 1000);
 });
