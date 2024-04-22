@@ -14,7 +14,7 @@ var left;
 function pixelsize(){
     let coef = 0
     if (phase==0){
-        coef = 3
+        coef = 4
     } else {
         coef = 12
     }
@@ -49,9 +49,6 @@ introButton.onclick = function(){
         $('#canvas').show()
         $('#canvas').animate({opacity: '1'}, "slow");
     }, 1500)
-    for (let i = 0; i<50; i++){
-        stars.push([Math.pow(Math.random(), 0.75)*(num-$(window).height())+($(window).height()), Math.random()*Math.PI, (Math.random()+1)*0.0006]);
-    }
 }
 class star {
     constructor(){
@@ -81,9 +78,9 @@ class star {
                 this.currcolour.push(4/5*pixels.data[num+i]+51);
             }
             this.currcolour=[].slice.call(pixels.data.slice(num, num+4));
-            this.currcolour[3]=0.8;
+            this.currcolour[3]=0.75;
         } else {
-            this.currcolour=[255, 255, 255, 0.2];
+            this.currcolour=[255, 255, 255, 0.25];
         }
         for (let i=0; i<4; i++){
             this.colour[i]+=((this.currcolour[i]-this.colour[i])/10);
@@ -99,18 +96,20 @@ function resizeMyName(){
         myName.width = 0.50*$(window).height();
         myName.height = 0.50*$(window).height();
         myName.style.top = 0.25*$(window).height()+'px';
-        introButton.style.top = (0.835*$(window).height())+'px';
         title.style.right = 0.1*$(window).width()+'px';
         title.style.width = (0.8*$(window).width()-0.50*$(window).height())+'px';
         title.style.top = ($(window).height()-$('#title').height())/2+'px';
+        introButton.style.height = 0.50*$(window).height()+'px';
+        introButton.style.width = 0.50*$(window).height()+'px';
     } else {
         myName.width = 0.50*$(window).width();
         myName.height = 0.50*$(window).width();
         myName.style.left = 0.25*$(window).width()+'px';
         myName.style.top = ($(window).height()-0.50*$(window).width())/2+'px';
-        introButton.style.top = (0.71*$(window).height()+0.125*$(window).width())+'px';
         title.style.bottom = 0.1*$(window).height()+'px';
         title.style.left = ($(window).width()-$('#title').width())/2+'px';
+        introButton.style.height = 0.50*$(window).width()+'px';
+        introButton.style.width = 0.50*$(window).width()+'px';
     }
     if (phase==0){
         if ($(window).width()>$(window).height()){
