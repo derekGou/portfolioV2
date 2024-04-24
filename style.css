@@ -55,7 +55,7 @@ loader {
     z-index: -1;
 }
 #name {
-    position: fixed;
+    position: absolute;
     z-index: 1;
 }
 .logo {
@@ -172,10 +172,8 @@ h3 {
     display: flex;
     flex-direction: row;
     margin-left: 2.5vw;
-    cursor: pointer;
     align-items: center;
     justify-content: center;
-    width: 20vw;
 }
 .linkButton {
     height: 5vh;
@@ -187,6 +185,7 @@ h3 {
     flex-direction: row;
     overflow: hidden;
     transition: width 0.5s;
+    cursor: pointer;
 }
 .linkButton:hover {
     width: 20vh;
@@ -204,4 +203,7 @@ h1 {
     opacity: 1;
     transition: opacity 0.25s;
     transition-delay: 0.25s;
+}
+.linkWrapper {
+    text-decoration: none;
 }
