@@ -10,6 +10,7 @@ myName = document.querySelector('#name');
 var c1 = myName.getContext('2d', { willReadFrequently: true });
 introButton = document.getElementById("introButton");
 title = document.getElementById("title");
+buttonHolder = document.getElementsByClassName("buttonHolder")[0];
 var left;
 function pixelsize(){
     let coef = 0
@@ -99,6 +100,7 @@ function resizeMyName(){
         title.style.right = 0.1*$(window).width()+'px';
         title.style.width = (0.8*$(window).width()-0.50*$(window).height())+'px';
         title.style.top = ($(window).height()-$('#title').height())/2+'px';
+        buttonHolder.style.width = (0.8*$(window).width()-0.50*$(window).height())+'px';
         introButton.style.height = 0.50*$(window).height()+'px';
         introButton.style.width = 0.50*$(window).height()+'px';
     } else {
@@ -108,6 +110,7 @@ function resizeMyName(){
         myName.style.top = ($(window).height()-0.50*$(window).width())/2+'px';
         title.style.bottom = 0.1*$(window).height()+'px';
         title.style.left = ($(window).width()-$('#title').width())/2+'px';
+        title.style.alignItems = "center";
         introButton.style.height = 0.50*$(window).width()+'px';
         introButton.style.width = 0.50*$(window).width()+'px';
     }

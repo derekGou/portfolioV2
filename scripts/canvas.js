@@ -41,7 +41,7 @@ function render(){
     stars = stars1;
     setTimeout(function(){
         requestAnimationFrame(render)
-    }, 10);
+    }, 15);
 }
 
 requestAnimationFrame(render);
