@@ -97,41 +97,15 @@ function resizeMyName(){
     if ($(window).width()>$(window).height()){
         myName.width = 0.50*$(window).height();
         myName.height = 0.50*$(window).height();
-        myName.style.top = 0.25*$(window).height()+'px';
-        title.style.right = 0.1*$(window).width()+'px';
-        title.style.width = (0.8*$(window).width()-0.50*$(window).height())+'px';
-        title.style.top = ($(window).height()-$('#title').height())/2+'px';
-        title.style.alignItems = "flex-start";
-        buttonHolder.style.width = (0.775*$(window).width()-0.50*$(window).height())+'px';
-        introButton.style.height = 0.50*$(window).height()+'px';
         introButton.style.width = 0.50*$(window).height()+'px';
+        introButton.style.height = 0.50*$(window).height()+'px';
         h3.style.textAlign = "left";
     } else {
         myName.width = 0.50*$(window).width();
         myName.height = 0.50*$(window).width();
-        myName.style.left = 0.25*$(window).width()+'px';
-        myName.style.top = ($(window).height()-0.50*$(window).width())/2+'px';
-        title.style.top = 0.3*$(window).height()+'px';
-        title.style.right = ($(window).width()-$('#title').width())/2+'px';
-        title.style.alignItems = "center";
-        title.style.width = (0.8*$(window).width())+'px';
-        buttonHolder.style.width = (0.775*$(window).width())+'px';
-        introButton.style.height = 0.50*$(window).width()+'px';
         introButton.style.width = 0.50*$(window).width()+'px';
+        introButton.style.height = 0.50*$(window).width()+'px';
         h3.style.textAlign = "center";
-    }
-    if (phase==0){
-        if ($(window).width()>$(window).height()){
-            myName.style.left = ($(window).width()-0.50*$(window).height())/2+'px';
-        } else {
-            myName.style.left = 0.25*$(window).width()+'px';
-        }
-    } else {
-        if ($(window).width()>$(window).height()){
-            myName.style.left = 0.1*$(window).width()+'px';
-        } else {
-            myName.style.top = 0.1*$(window).height()+'px';
-        }
     }
     spheres = [];
     for (let i=0; i<1500; i++){

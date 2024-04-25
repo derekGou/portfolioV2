@@ -6,4 +6,5 @@ setTimeout(function(){
 setTimeout(function(){
     $('#name').fadeIn(2000);
     $('#introButton').fadeIn(2000);
+    console.log('wtf')
 }, 1000);
