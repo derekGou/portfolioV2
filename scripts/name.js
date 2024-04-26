@@ -36,21 +36,22 @@ introButton.onclick = function(){
         $('#introButton').hide()
     }, 500)
     setTimeout(function(){
-        if ($(window).width()>$(window).height()){
-            $('#name').animate({left: 0.1*$(window).width()+'px'}, "slow")
-        } else {
-            $('#name').animate({top: 0.1*$(window).height()+'px'}, "slow")
-        }
-    }, 750)
-    setTimeout(function(){
         $('background').animate({opacity: '1'}, "slow")
-    }, 1000)
-    setTimeout(function(){
         $('#title').css("display", "flex");
         $('#title').animate({opacity: '1'}, "slow");
         $('#canvas').show()
         $('#canvas').animate({opacity: '1'}, "slow");
+        $('#description').animate({width: '50vw'}, "slow");
+    }, 1000)
+    setTimeout(function(){
+        $('h2').css("display", "block");
+        $('h2').animate({opacity: '1'}, "slow");
+        $('h3').css("display", "block");
+        $('h3').animate({opacity: '1'}, "slow");
     }, 1500)
+    setTimeout(function(){
+        $('.buttonHolder').animate({height: '10vh', opacity: '1'}, "slow");
+    }, 2000)
 }
 class star {
     constructor(){
@@ -108,7 +109,7 @@ function resizeMyName(){
         h3.style.textAlign = "center";
     }
     spheres = [];
-    for (let i=0; i<1500; i++){
+    for (let i=0; i<1250; i++){
         const sphere = new star();
         spheres.push(sphere);
     }
