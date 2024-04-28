@@ -48,9 +48,12 @@ introButton.onclick = function(){
         $('h2').animate({opacity: '1'}, "slow");
         $('h3').css("display", "block");
         $('h3').animate({opacity: '1'}, "slow");
+        $('.moreButtons').css("display", "flex");
     }, 1500)
     setTimeout(function(){
         $('.buttonHolder').animate({height: '10vh', opacity: '1'}, "slow");
+        $('.moreButtons').slideDown();
+        $('.moreButtons').animate({opacity: '1'}, "slow");
     }, 2000)
 }
 class star {

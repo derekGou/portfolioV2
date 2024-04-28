@@ -6,5 +6,9 @@ setTimeout(function(){
 setTimeout(function(){
     $('#name').fadeIn(2000);
     $('#introButton').fadeIn(2000);
-    console.log('wtf')
 }, 1000);
+for (let i=0; i<50; i++){
+    speed = (Math.random()+1)*0.0006;
+    dist = Math.pow(Math.random(), 0.75)*(num-$(window).height())+($(window).height());
+    stars.push([dist, Math.PI*Math.random(), speed]);
+}

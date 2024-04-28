@@ -127,8 +127,7 @@ h2 {
     font-family: "Open Sans";
     font-size: 2.5em;
     font-weight: 600;
-    margin: 0;
-    margin-left: 2.5vw;
+    margin: 0 2.5vw;
 }
 background {
     z-index: -2;
@@ -147,8 +146,7 @@ h3 {
     display: none;
     font-family: "IBM Plex Mono";
     color: white;
-    margin: 2vh;
-    margin-left: 2.5vw;
+    margin: 2vh 2.5vw;
     font-weight: 300;
 }
 @keyframes pulse-animation {
@@ -216,4 +214,50 @@ h1 {
 #description {
     width: 0;
     justify-content: center;
+}
+hl1 {
+    color: #F87171;
+}
+hl2 {
+    color: #4ADE80;
+}
+hl3 {
+    color: #60A5FA;
+}
+.moreButtons {
+    opacity: 0;
+    display: none;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 2.5vw;
+}
+.moreButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    margin-right: 3vh;
+    border: 1vh solid rgba(255, 255, 255, 0.95);
+    border-radius: 1vh;
+    cursor: pointer;
+}
+h4 {
+    color: black;
+	mix-blend-mode: lighten;
+    background-color: rgba(255, 255, 255, 0.95);
+    width: 15vh;
+    font-size: 1.5em;
+    margin: 0;
+    font-weight: 800;
+    font-family: "Open Sans";
+    text-align: center;
+    cursor: pointer;
+}
+.moreButton:hover {
+    border: 1vh solid rgba(255, 255, 255, 1);
+}
+.moreButton:hover>h4 {
+    background-color: rgba(255, 255, 255, 1);
 }

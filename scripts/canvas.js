@@ -3,7 +3,6 @@ var c = canvas.getContext('2d');
 var stars = [];
 var num = 0;
 
-
 function resizeCanvas(){
     num = Math.sqrt(Math.pow(2*$(window).height(), 2)+Math.pow($(window).width()/2, 2));
     canvas.style.top = (2*$(window).height()-num)+'px';
@@ -30,8 +29,8 @@ function render(){
     c.clearRect(0, 0, num*2, num);
     generate();
     var stars1 = [];
-    c.fillStyle = "white";
     for (let i=0; i<stars.length; i++){
+        c.fillStyle = "white";
         c.fillRect(calculate(stars[i])[0], calculate(stars[i])[1], 2, 2);
         stars[i][1]+=stars[i][2];
         if (stars[i][1]<=Math.PI){
