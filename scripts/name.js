@@ -8,17 +8,13 @@ sunset.src = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QhSRXhpZgAATU0
 
 myName = document.querySelector('#name');
 var c1 = myName.getContext('2d', { willReadFrequently: true });
-introButton = document.getElementById("introButton");
-title = document.getElementById("title");
-buttonHolder = document.getElementsByClassName("buttonHolder")[0];
-h3 = document.getElementsByTagName("h3")[0];
 var left;
 function pixelsize(){
-    let coef = 0
+    let coef = 0;
     if (phase==0){
-        coef = 4
+        coef = 4;
     } else {
-        coef = 12
+        coef = 12;
     }
     if ($(window).width()>$(window).height()){
         return parseInt(coef*$(window).height()/1000);
@@ -27,34 +23,56 @@ function pixelsize(){
     }
 }
 introButton.onclick = function(){
-    phase = 1
+    phase = 1;
     for (let i=0; i<spheres.length; i++){
         spheres[i].update();
     }
-    $('#introButton').animate({opacity: '0'}, "slow")
+    $('#introButton').animate({
+        opacity: '0'
+    }, "slow");
     setTimeout(function(){
         $('#introButton').hide()
-    }, 500)
+    }, 500);
     setTimeout(function(){
-        $('background').animate({opacity: '1'}, "slow")
+        $('background').animate({
+            opacity: "1"
+        }, "slow")
         $('#title').css("display", "flex");
-        $('#title').animate({opacity: '1'}, "slow");
-        $('#canvas').show()
-        $('#canvas').animate({opacity: '1'}, "slow");
-        $('#description').animate({width: '50vw'}, "slow");
-    }, 1000)
+        $('#title').animate({
+            opacity: "1"
+        }, "slow");
+        $('#canvas').show();
+        $('#canvas').animate({
+            opacity: "1"
+        }, "slow");
+        let w = 0;
+        if ($(window).height()<$(window).width()){
+            w = "50vw";
+        } else {
+            w = "80vw";
+        }
+        $('#description').animate({
+            width: w, 
+            height: "50vh"
+        }, "slow");
+    }, 1000);
     setTimeout(function(){
         $('h2').css("display", "block");
-        $('h2').animate({opacity: '1'}, "slow");
+        $('h2').animate({
+            opacity: "1"
+        }, "slow");
         $('h3').css("display", "block");
-        $('h3').animate({opacity: '1'}, "slow");
+        $('h3').animate({
+            opacity: "1"
+        }, "slow");
         $('.moreButtons').css("display", "flex");
-    }, 1500)
+    }, 1500);
     setTimeout(function(){
-        $('.buttonHolder').animate({height: '10vh', opacity: '1'}, "slow");
         $('.moreButtons').slideDown();
-        $('.moreButtons').animate({opacity: '1'}, "slow");
-    }, 2000)
+        $('.moreButtons').animate({
+            opacity: "1"
+        }, "slow");
+    }, 2000);
 }
 class star {
     constructor(){
@@ -101,15 +119,53 @@ function resizeMyName(){
     if ($(window).width()>$(window).height()){
         myName.width = 0.50*$(window).height();
         myName.height = 0.50*$(window).height();
-        introButton.style.width = 0.50*$(window).height()+'px';
-        introButton.style.height = 0.50*$(window).height()+'px';
-        h3.style.textAlign = "left";
+        $('#introButton').css({
+            "width": 0.50*$(window).height()+"px", 
+            "height": 0.50*$(window).height()+"px"
+        })
+        $('h3').css({
+            "text-align": "left",
+            "margin": "2vh 2.5vw"
+        });
+        $('h2').css({
+            "text-align": "left",
+            "margin": "0vh 2.5vw"
+        });
+        $('.horz').css({
+            "flex-direction": "row",
+            "width": ""
+        })
+        $('#description').css({
+            "width": phase*50+"vw",
+            "height": phase*50+"vh",
+            "align-items": "flex-start"
+        });
+        $('.moreButton').css("margin", "0 3vh 0 0");
     } else {
         myName.width = 0.50*$(window).width();
         myName.height = 0.50*$(window).width();
-        introButton.style.width = 0.50*$(window).width()+'px';
-        introButton.style.height = 0.50*$(window).width()+'px';
-        h3.style.textAlign = "center";
+        $('#introButton').css({
+            "width": 0.50*$(window).width()+"px", 
+            "height": 0.50*$(window).width()+"px"
+        })
+        $('h3').css({
+            "text-align": "center",
+            "margin": "2vh 0"
+        });
+        $('h2').css({
+            "text-align": "center",
+            "margin": "2vh 0"
+        });
+        $('.horz').css({
+            "flex-direction": "column",
+            "width": "80vw"
+        })
+        $('#description').css({
+            "width": phase*80+"vw",
+            "height": phase*50+"vh",
+            "align-items": "center"
+        });
+        $('.moreButton').css("margin", "0 1.5vh 0 1.5vh");
     }
     spheres = [];
     for (let i=0; i<1250; i++){
@@ -126,7 +182,7 @@ resizeMyName();
 function nameRender(){
     c1.clearRect(0, 0, myName.height, myName.height);
     if (phase==1){
-        c1.drawImage(sunset, 0, 0, myName.height, myName.height)
+        c1.drawImage(sunset, 0, 0, myName.height, myName.height);
     }
     pixels = c1.getImageData(0, 0, myName.height, myName.height);
     c1.clearRect(0, 0, myName.height, myName.height);

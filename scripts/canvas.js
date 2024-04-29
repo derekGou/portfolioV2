@@ -5,8 +5,8 @@ var num = 0;
 
 function resizeCanvas(){
     num = Math.sqrt(Math.pow(2*$(window).height(), 2)+Math.pow($(window).width()/2, 2));
-    canvas.style.top = (2*$(window).height()-num)+'px';
-    canvas.style.left = ($(window).width()/2-num)+'px';
+    canvas.style.top = (2*$(window).height()-num)+"px";
+    canvas.style.left = ($(window).width()/2-num)+"px";
     canvas.width = num*2;
     canvas.height = num;
 }
