@@ -289,5 +289,30 @@ h4 {
     opacity: 0;
     z-index: 100;
     display: none;
-    height: 100vh;
+    height: 88vh;
+    aspect-ratio: 8.5/11;
+}
+.backButton {
+    position: absolute;
+    opacity: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2.5px white solid;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.25);
+    z-index: 1000;
+    left: 2.5vh;
+    top: 2.5vh;
+}
+.leftArrow {
+    display: block;
+    width: 20px;
+    height: 20px;
+    transform: translateX(5px) rotate(-45deg);
+    border-top: 5px solid white;
+    border-left: 5px solid white;
 }
