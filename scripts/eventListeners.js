@@ -10,4 +10,5 @@ window.addEventListener("resize", function(){
             $('#introButton').fadeIn(2000);
         }
     }, 1000);
+    update();
 });
