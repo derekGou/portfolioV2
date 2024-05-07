@@ -140,9 +140,9 @@ function resizeMyName(){
             "height": phase*50+"vh",
             "align-items": "flex-start"
         });
-        $('.moreButton').css("margin", "0 3vh 0 0");
-        $('.moreButtons').css("flex-direction", "row");
-        $('.vert').css("justify-content", "center");
+        $('.moreButton').css({"margin": "0 3vh 0 0"});
+        $('.moreButtons').css({"flex-direction": "row"});
+        $('.vert').css({"justify-content": "center"});
     } else {
         myName.width = 0.50*$(window).width();
         myName.height = 0.50*$(window).width();
@@ -167,9 +167,9 @@ function resizeMyName(){
             "height": phase*50+"vh",
             "align-items": "center"
         });
-        $('.moreButton').css("margin", "0 1.5vh 0 1.5vh");
-        $('.moreButtons').css("flex-direction", "column");
-        $('.vert').css("justify-content", "flex-start");
+        $('.moreButton').css({"margin": "1.5vh"});
+        $('.moreButtons').css({"flex-direction": "column"});
+        $('.vert').css({"justify-content": "flex-start"});
     }
     spheres = [];
     for (let i=0; i<1250; i++){

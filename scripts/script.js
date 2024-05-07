@@ -11,9 +11,14 @@ $('#resume').click(function(){
 });
 $('#contact').click(function(){
     clear();
+    showing[2] = 1;
+    setTimeout(function(){
+        contact();
+    }, 1000);
 });
 function update(){
     resume();
+    contact()
 }
 function projects(){
 
@@ -91,7 +96,23 @@ function resume(){
     }
 }
 function contact(){
-
+    if (showing[2]==0){
+        $('#contactHold').animate({
+            "opacity": "0"
+        }, "slow")
+        setTimeout(function(){
+            $('#contactHold').css({
+                "display": "none"
+            })
+        }, 1000)
+    } else {
+        $('#contactHold').css({
+            "display": "flex"
+        })
+        $('#contactHold').animate({
+            "opacity": "1"
+        }, "slow")
+    }
 }
 $('.backButton').click(function(){
     unclear();
