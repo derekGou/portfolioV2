@@ -34,6 +34,9 @@ function resume(){
         $('#page3').animate({
             "opacity": "0"
         }, "slow");
+        $('.downloadsHolder').animate({
+            "opacity": "0"
+        }, "slow");
         setTimeout(function(){
             $('#page1').css({
                 "display": "none",
@@ -52,7 +55,7 @@ function resume(){
             });
         }, 1000)
     } else {
-        if (0.88*$(window).height()<=0.68*($(window).width()-(0.12*$(window).height()))){
+        if ($(window).height()<=($(window).width()-(0.12*$(window).height()))){
             $('#page1').css({
                 "display": "block"
             });
@@ -69,6 +72,9 @@ function resume(){
             $('#page3').animate({
                 "opacity": "1"
             }, "slow");
+            $('.downloadsHolder').css({
+                "flex-direction": "row"
+            });
         } else {
             $('#page1').css({
                 "display": "none",
@@ -84,6 +90,9 @@ function resume(){
                 "display": "none",
                 "opacity": "0"
             });
+            $('.downloadsHolder').css({
+                "flex-direction": "column"
+            });
         }
         $('#resumeHold').css({
             "display": "flex", 
@@ -92,7 +101,12 @@ function resume(){
             "top": "0", 
             "left": "0"
         });
-        $('#resumeHold').animate({"opacity": "1"}, "slow");
+        $('.downloadsHolder').animate({
+            "opacity": "1"
+        }, "slow");
+        $('#resumeHold').animate({
+            "opacity": "1"
+        }, "slow");
     }
 }
 function contact(){
@@ -112,6 +126,15 @@ function contact(){
         $('#contactHold').animate({
             "opacity": "1"
         }, "slow")
+        if ($(window).height()<$(window).width()){
+            $('.formwidth').css({
+                "width": "80vh"
+            })
+        } else {
+            $('.formwidth').css({
+                "width": "80vw"
+            })
+        }
     }
 }
 $('.backButton').click(function(){

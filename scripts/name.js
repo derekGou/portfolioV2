@@ -31,7 +31,10 @@ introButton.onclick = function(){
         opacity: '0'
     }, "slow");
     setTimeout(function(){
-        $('#introButton').hide()
+        $('#introButton').css({
+            "display": "none",
+            "z-index": "-2"
+        })
     }, 500);
     setTimeout(function(){
         $('background').animate({
@@ -110,7 +113,7 @@ class star {
             this.colour[i]+=((this.currcolour[i]-this.colour[i])/10);
         }
         c1.beginPath();
-        c1.arc(this.position[0]-(this.size/2), this.position[1]-(this.size/2), this.size, 0, 2 * Math.PI);
+        c1.arc(this.position[0]-(this.size/4), this.position[1]-(this.size/4), this.size, 0, 2 * Math.PI);
         c1.fillStyle = `rgba(${this.colour[0]}, ${this.colour[1]}, ${this.colour[2]}, ${this.colour[3]})`;
         c1.fill();
     }

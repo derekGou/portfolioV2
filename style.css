@@ -97,7 +97,7 @@ loader {
         transform: perspective(1000px) rotateY(0);
     }
 }
-.button {
+#introButton {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -236,11 +236,26 @@ h4 {
     height: 0vh;
     z-index: 100;
 }
+#resumeHold {
+    flex-direction: column;
+}
+.resumeholder {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.downloadsHolder {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
 .page {
     opacity: 0;
     z-index: 100;
     display: none;
-    height: 88vh;
+    height: 66vh;
     aspect-ratio: 8.5/11;
 }
 .backButton {
@@ -303,13 +318,14 @@ input[type=submit] {
     font-family: "Open Sans";
 }
 #contactHold {
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 #emailForm {
     padding: 2.5vh;
-    background-color: rgba(0, 0, 0, 0.5);
+    margin: 1vh;
+    background-color: rgba(255, 255, 255, 0.25);
     border-radius: 1vh;
     display: flex;
     flex-direction: column;
@@ -322,4 +338,50 @@ input[type=text]:focus, input[type=email]:focus, textarea:focus {
 textarea {
     resize: none;
     height: 25vh;
+}
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.centered {
+    text-align: center !important;
+}
+#link {
+    color: #6AB2C4;
+}
+.icon {
+    filter: brightness(0) invert(1);
+    height: 5vh;
+}
+#contactLinks {
+    background-color: rgba(255, 255, 255, 0.25);
+    margin: 2.5vh;
+    border-radius: 5vh;
+    padding: 0.5vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.download {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 100vh;
+    border: 0.25vh white solid;
+    padding: 1.5vh;
+    margin: 2.5vh 10vh 0 10vh;
+    transition: background-color 0.5s;
+}
+.download:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: background-color 0.5s;
+}
+.marg {
+    margin: 0 !important;
+}
+.linkButtonWrapper {
+    margin: 1.25vh;
+    border-radius: 50%;
+    height: 5vh;
+    width: 5vh;
 }
